@@ -45,7 +45,7 @@ function updateStatus(status) {
     />
   </teleport>
 
-  <div class="p-1 px-[40px] container mx-auto">
+  <div class="p-1 px-[40px] container mx-auto mt-2">
     <!-- ส่วนข้อมูลด้านบน -->
     <div
       class="flex justify-between items-center p-4 border border-gray-300 rounded-md"
@@ -65,8 +65,12 @@ function updateStatus(status) {
           <p class="text-sm text-gray-500">Truemove H</p>
         </div>
       </div>
-      <div class="flex items-center space-x-4">
-        <div class="text-lg font-bold">$100.00</div>
+      <div class="flex items-center space-x-4 pl-5">
+        <div class="flex">
+          <p>$</p>
+          <p class="font-bold">0</p>
+          <p>.00</p>
+        </div>
         <div><input type="checkbox" id="confirm" class="h-5 w-5" /></div>
       </div>
     </div>

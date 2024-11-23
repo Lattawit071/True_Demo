@@ -14,7 +14,7 @@
       </div>
 
       <div class="flex-1 text-center mb-2 md:mb-0">
-        <h1 class="text-lg font-semibold">บิล & การใช้งาน</h1>
+        <h1 class="text-base font-semibold">บิล & การใช้งาน</h1>
       </div>
 
       <div class="flex space-x-4">
@@ -60,15 +60,19 @@
 
         <!-- Payment Information Section -->
         <div class="flex justify-between items-center px-4 sm:px-20">
-          <div class="sm:mb-0 text-center sm:text-left w-full sm:w-auto">
-            <p>ยอดเงินที่ต้องชำระ</p>
+          <div class="sm:mb-0 sm:text-left w-full sm:w-auto pl-3">
+            <p class="text-sm">ยอดรวม</p>
+            <div class="flex">
+              <p>$</p>
+              <p class="font-bold">0</p>
+              <p>.00</p>
+            </div>
           </div>
-          <div class="flex items-center">
-            <p class="text-lg font-bold mr-4">0.00$</p>
+          <div class="flex items-center gap-3">
             <div
               class="bg-red-500 text-white py-2 px-6 rounded-full cursor-pointer hover:bg-red-600 hover:shadow-lg transition-all duration-200 ease-in-out"
             >
-              <p class="text-xl font-semibold">จ่าย</p>
+              <p class="text-sm font-semibold">จ่าย</p>
             </div>
           </div>
         </div>
