@@ -13,7 +13,7 @@
         </div>
       </div>
 
-      <div class="flex-1 text-center mb-2 md:mb-0">
+      <div class="flex-1 text-center mb-2 md:mb-0 pl-5">
         <h1 class="text-base font-semibold">บิล & การใช้งาน</h1>
       </div>
 

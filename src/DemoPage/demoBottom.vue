@@ -49,7 +49,7 @@ function updateStatus(status) {
     <div
       class="flex justify-between items-center p-4 border border-gray-300 rounded-md"
     >
-      <div class="flex items-center space-x-4">
+      <div class="flex items-center space-x-4 gap-4">
         <div
           class="w-20 h-16 bg-gray-200 flex items-center justify-center rounded-md"
         >
@@ -74,7 +74,7 @@ function updateStatus(status) {
       </div>
     </div>
 
-    <div class="bg-gray-200 min-h-screen py-6">
+    <div class="bg-gray-200 min-h-screen py-6 rounded-md">
       <div class="kuy flex flex-col items-center justify-center">
         <div class="flex justify-center">
           <p class="text-xs font-semibold">5G Device 0</p>
@@ -105,7 +105,7 @@ function updateStatus(status) {
         </p>
       </div>
 
-      <div class="mx-[12px] bg-white mt-[15px]">
+      <div class="mx-[12px] bg-gray-200 mt-[15px]">
         <div class="flex justify-between gap-4 px-4">
           <button
             class="relative bg-red-500 text-white py-2 px-4 rounded hover:bg-red-700 transition duration-200 flex-1"
@@ -126,7 +126,7 @@ function updateStatus(status) {
             ></span>
           </button>
         </div>
-        <div class="mt-4">
+        <div class="mt-4 bg-gray-100">
           <div v-if="currentView === 'left'" class="px-[10px] py-[20px]">
             <!-- ส่วนโทร -->
             <div class="border border-gray-300 p-4">
