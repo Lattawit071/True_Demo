@@ -126,7 +126,7 @@ const setTimer = () => {
         </button>
         <button
           @click="setTimer"
-          class="bg-red-500 text-white py-2 px-4 rounded"
+          class="bg-red-400 text-white py-2 px-4 rounded"
         >
           ยืนยัน
         </button>

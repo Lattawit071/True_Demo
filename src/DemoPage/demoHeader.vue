@@ -67,7 +67,7 @@
           </div>
           <div class="flex items-center gap-3">
             <div
-              class="bg-red-500 text-white py-2 px-6 rounded-full cursor-pointer hover:bg-red-600 hover:shadow-lg transition-all duration-200 ease-in-out"
+              class="bg-red-400 text-white py-2 px-6 rounded-full cursor-pointer hover:bg-red-600 hover:shadow-lg transition-all duration-200 ease-in-out"
             >
               <p class="text-sm font-semibold">จ่าย</p>
             </div>

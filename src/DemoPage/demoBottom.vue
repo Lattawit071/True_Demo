@@ -88,7 +88,7 @@ function updateStatus(status) {
                 ดูรายละเอียด
               </p>
               <button
-                class="bg-red-500 text-white py-1 px-2 rounded-md hover:bg-red-600 focus:outline-none transition-all duration-200 ease-in-out text-xs"
+                class="bg-red-400 text-white py-1 px-2 rounded-md hover:bg-red-600 focus:outline-none transition-all duration-200 ease-in-out text-xs"
                 @click="openModal"
               >
                 เพิ่มความเร็ว
@@ -108,7 +108,7 @@ function updateStatus(status) {
       <div class="mx-[12px] bg-gray-200 mt-[15px]">
         <div class="flex justify-between gap-4 px-4">
           <button
-            class="relative bg-red-500 text-white py-2 px-4 rounded hover:bg-red-700 transition duration-200 flex-1"
+            class="relative bg-red-400 text-white py-2 px-4 rounded hover:bg-red-700 transition duration-200 flex-1"
             @click="showData('left')"
           >
             รอบบิลปัจจุบัน
@@ -117,7 +117,7 @@ function updateStatus(status) {
             ></span>
           </button>
           <button
-            class="relative bg-red-500 text-white py-2 px-4 rounded hover:bg-red-700 transition duration-200 flex-1"
+            class="relative bg-red-400 text-white py-2 px-4 rounded hover:bg-red-700 transition duration-200 flex-1"
             @click="showData('right')"
           >
             รอบบิลที่ผ่านมา
