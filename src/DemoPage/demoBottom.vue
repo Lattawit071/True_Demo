@@ -1,0 +1,231 @@
+<script setup>
+import { ref } from "vue";
+import demoModal from "./demoModal.vue";
+
+const currentView = ref(null);
+const modalOpen = ref(false);
+const timerValue = ref("0 "); // ค่าเริ่มต้นเป็น 0 นาที
+
+function showData(view) {
+  currentView.value = view;
+}
+
+function openModal() {
+  modalOpen.value = true;
+}
+
+function closeModal() {
+  modalOpen.value = false;
+  if (!timerValue.value || timerValue.value === "ปิดการใช้งาน") {
+    timerValue.value = "0 นาที"; // ตั้งค่า 0 นาทีเมื่อไม่มีการตั้งเวลา
+  }
+}
+
+function setTimeFromModal(time) {
+  if (time === "none") {
+    timerValue.value = "0 "; // ตั้งเป็น 0 นาทีเมื่อปิดการใช้งาน
+  } else {
+    timerValue.value = time; // แสดงเวลาที่ตั้ง
+  }
+  closeModal(); // ปิด Modal หลังตั้งค่า
+}
+</script>
+
+<template>
+  <teleport to="body">
+    <demoModal
+      v-if="modalOpen"
+      @close="closeModal"
+      @set-time="setTimeFromModal"
+    />
+  </teleport>
+
+  <div class="p-7 px-[40px]">
+    <!-- ส่วนข้อมูลด้านบน -->
+    <div
+      class="flex justify-between items-center p-4 border border-gray-300 rounded-md"
+    >
+      <div class="flex items-center space-x-4">
+        <div
+          class="w-16 h-16 bg-gray-200 flex items-center justify-center rounded-md"
+        >
+          <span>QR</span>
+        </div>
+        <div class="text-left">
+          <p class="font-semibold">091-234-5678</p>
+          <p class="text-sm text-gray-500">Truemove H</p>
+        </div>
+      </div>
+      <div class="flex items-center space-x-4">
+        <div class="text-lg font-bold">$100.00</div>
+        <div><input type="checkbox" id="confirm" class="h-5 w-5" /></div>
+      </div>
+    </div>
+
+    <!-- ข้อมูล 5G Device -->
+    <div class="bg-gray-200 min-h-screen">
+      <div class="flex justify-center">
+        <p>5G Device 0</p>
+      </div>
+      <div class="flex justify-center gap-2">
+        <p class="pr-[20px]">(แพ็คหลัก + 1 แพ็คเสริม)</p>
+        <span class="text-red-600 text-xl">🔍</span>
+        <p class="text-red-600 text-lg cursor-pointer hover:underline">
+          ดูรายละเอียด
+        </p>
+        <button
+          class="bg-red-500 text-white py-2 px-4 rounded-full hover:bg-red-700 focus:outline-none transition duration-200 ease-in-out"
+          @click="openModal"
+        >
+          เพิ่มความเร็ว
+        </button>
+        <!-- เพิ่มข้อความแสดงเวลาทางขวาของปุ่ม -->
+        <div
+          v-if="timerValue !== null"
+          class="text-lg font-semibold text-red-600 ml-4"
+        >
+          {{ timerValue === 0 ? "0 " : timerValue + " นาที" }}
+        </div>
+      </div>
+
+      <p class="text-center text-red-600 text-sm mt-2">
+        สัญญาจะสิ้นสุดในวันที่ 02/01/2569
+      </p>
+
+      <!-- เพิ่มส่วนแสดงเวลา -->
+      <div class="mx-[12px] bg-white mt-[15px]">
+        <div class="flex justify-between gap-4 px-4">
+          <button
+            class="relative bg-red-500 text-white py-2 px-4 rounded hover:bg-red-700 transition duration-200 flex-1 ml-4"
+            @click="showData('left')"
+          >
+            รอบบิลปัจจุบัน
+            <span
+              class="absolute left-1/2 transform -translate-x-1/2 top-full w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-t-[10px] border-t-red-500 group-hover:border-t-red-700"
+            ></span>
+          </button>
+          <button
+            class="relative bg-red-500 text-white py-2 px-4 rounded hover:bg-red-700 transition duration-200 flex-1 mr-4"
+            @click="showData('right')"
+          >
+            รอบบิลที่ผ่านมา
+            <span
+              class="absolute left-1/2 transform -translate-x-1/2 top-full w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-t-[10px] border-t-red-500 group-hover:border-t-red-700"
+            ></span>
+          </button>
+        </div>
+        <div class="mt-4">
+          <div v-if="currentView === 'left'" class="px-[10px] py-[20px]">
+            <div class="border border-gray-300 p-4">
+              <div class="flex items-center justify-between">
+                <div>📱</div>
+                <div>
+                  <div class="pl-[10px]">
+                    <p class="text-2xl">โทร</p>
+                    <p>(แพ็คหลัก + แพ็คเสริม)</p>
+                    <div
+                      class="w-full h-3 bg-gray-300 rounded-full mt-2 relative overflow-hidden"
+                    >
+                      <div class="h-full bg-green-500" style="width: 30%"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="ml-auto text-right">
+                  <p>คงเหลือ</p>
+                  <div class="flex items-baseline justify-end gap-2">
+                    <p class="text-2xl">109</p>
+                    <p class="pt-[8px]">นาที</p>
+                  </div>
+                  <p>จาก 200 นาที</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- ส่วนอินเทอร์เน็ต -->
+            <div class="border border-gray-300 p-4">
+              <div class="flex items-center justify-between">
+                <div>🌐</div>
+                <div>
+                  <div class="pl-[10px]">
+                    <p class="text-2xl">อินเทอร์เน็ต</p>
+                    <p>(แพ็คหลัก + แพ็คเสริม)</p>
+                    <div
+                      class="w-full h-3 bg-gray-300 rounded-full mt-2 relative overflow-hidden"
+                    >
+                      <div class="h-full bg-green-500" style="width: 20%"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="ml-auto text-right">
+                  <p>คงเหลือ</p>
+                  <div class="flex items-baseline justify-end gap-2">
+                    <p class="text-2xl">1GB</p>
+                    <p class="pt-[8px]">ข้อมูล</p>
+                  </div>
+                  <p>จาก 2GB</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div v-if="currentView === 'right'" class="px-[10px] py-[20px]">
+            <!-- ส่วนโทร -->
+            <div class="border border-gray-300 p-4">
+              <div class="flex items-center justify-between">
+                <div>📱</div>
+                <div>
+                  <div class="pl-[10px]">
+                    <p class="text-2xl">โทร</p>
+                    <p>(แพ็คหลัก + แพ็คเสริม)</p>
+                    <div
+                      class="w-full h-3 bg-gray-300 rounded-full mt-2 relative overflow-hidden"
+                    >
+                      <!-- สีเขียวในหลอดพลัง -->
+                      <div class="h-full bg-green-500" style="width: 70%"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="ml-auto text-right">
+                  <p>คงเหลือ</p>
+                  <div class="flex items-baseline justify-end gap-2">
+                    <p class="text-2xl">1</p>
+                    <p class="pt-[8px]">นาที</p>
+                  </div>
+                  <p>จาก 200 นาที</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- ส่วนอินเทอร์เน็ต -->
+            <div class="border border-gray-300 p-4">
+              <div class="flex items-center justify-between">
+                <div>🌐</div>
+                <div>
+                  <div class="pl-[10px]">
+                    <p class="text-2xl">อินเทอร์เน็ต</p>
+                    <p>(แพ็คหลัก + แพ็คเสริม)</p>
+                    <div
+                      class="w-full h-3 bg-gray-300 rounded-full mt-2 relative overflow-hidden"
+                    >
+                      <div class="h-full bg-green-500" style="width: 50%"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="ml-auto text-right">
+                  <p>คงเหลือ</p>
+                  <div class="flex items-baseline justify-end gap-2">
+                    <p class="text-2xl">2GB</p>
+                    <p class="pt-[8px]">ข้อมูล</p>
+                  </div>
+                  <p>จาก 2GB</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<style scoped></style>
