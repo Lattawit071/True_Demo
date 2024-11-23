@@ -4,16 +4,13 @@ import { defineEmits, ref } from "vue";
 const emit = defineEmits();
 const selectedTime = ref(null);
 const customTime = ref(0);
+const remainingTime = ref(0);
+const timerStatus = ref("");
 
 const handleTimeSelect = (time) => {
   selectedTime.value = time;
-  if (time === "none") {
-    emit("set-status", "ปิดการใช้งาน");
-  } else {
-    if (time !== "custom") {
-      customTime.value = 0;
-    }
-    emit("set-status", "");
+  if (time !== "custom") {
+    customTime.value = 0; // รีเซ็ตเวลา custom หากเลือกค่าอื่น
   }
 };
 
@@ -25,12 +22,16 @@ const setTimer = () => {
   let timeToSet =
     selectedTime.value === "custom" ? customTime.value : selectedTime.value;
 
-  if (timeToSet > 0) {
-    emit("set-time", timeToSet);
-    closeModal();
+  if (timeToSet === "none" || timeToSet <= 0) {
+    remainingTime.value = 0; // รีเซ็ตเวลาเหลือ
+    timerStatus.value = "ปิดการใช้งาน"; // อัปเดตสถานะเป็นปิด
+    emit("set-status", "ปิดการใช้งาน"); // ส่งข้อความไปยัง parent
   } else {
-    closeModal();
+    remainingTime.value = timeToSet; // อัปเดตเวลา
+    timerStatus.value = ""; // เคลียร์ข้อความสถานะ
+    emit("set-time", timeToSet); // ส่งค่าเวลาไปยัง parent
   }
+  closeModal(); // ปิด modal
 };
 </script>
 
@@ -38,7 +39,7 @@ const setTimer = () => {
   <div
     class="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center"
   >
-    <div class="bg-white p-6 rounded-lg shadow-lg w-[400px]">
+    <div class="bg-white p-6 rounded-lg shadow-lg w-[75%]">
       <div class="flex justify-between">
         <p class="text-xl font-semibold">ตั้งเวลาเพิ่มความเร็ว</p>
         <button @click="closeModal" class="text-xl">✖️</button>
@@ -127,7 +128,7 @@ const setTimer = () => {
           @click="setTimer"
           class="bg-red-500 text-white py-2 px-4 rounded"
         >
-          ตั้งเวลา
+          ยืนยัน
         </button>
       </div>
     </div>

@@ -5,6 +5,8 @@ import demoModal from "./demoModal.vue";
 const currentView = ref(null);
 const modalOpen = ref(false);
 const timerValue = ref("0 "); // ค่าเริ่มต้นเป็น 0 นาที
+const remainingTime = ref(0);
+const timerStatus = ref("");
 
 function showData(view) {
   currentView.value = view;
@@ -21,13 +23,15 @@ function closeModal() {
   }
 }
 
-function setTimeFromModal(time) {
-  if (time === "none") {
-    timerValue.value = "0 "; // ตั้งเป็น 0 นาทีเมื่อปิดการใช้งาน
-  } else {
-    timerValue.value = time; // แสดงเวลาที่ตั้ง
+function updateRemainingTime(time) {
+  remainingTime.value = time; // อัปเดตเวลาเหลือ
+}
+
+function updateStatus(status) {
+  timerStatus.value = status;
+  if (status === "ปิดการใช้งาน") {
+    remainingTime.value = 0; // รีเซ็ตเวลาเหลือ
   }
-  closeModal(); // ปิด Modal หลังตั้งค่า
 }
 </script>
 
@@ -36,7 +40,8 @@ function setTimeFromModal(time) {
     <demoModal
       v-if="modalOpen"
       @close="closeModal"
-      @set-time="setTimeFromModal"
+      @set-time="updateRemainingTime"
+      @set-status="updateStatus"
     />
   </teleport>
 
@@ -85,12 +90,9 @@ function setTimeFromModal(time) {
             </div>
           </div>
         </div>
-        <div
-          v-if="timerValue !== null"
-          class="text-xs font-semibold text-red-600 flex items-center ml-4 mt-2"
-        >
-          ตอนนี้ความเร็วเหลือ
-          {{ timerValue === 0 ? "0 " : timerValue + " นาที" }}
+        <div class="text-center text-red-600 text-xs mt-4">
+          <p v-if="remainingTime === 0">ตอนนี้ความเร็วเหลือ 0 นาที</p>
+          <p v-else>ตอนนี้ความเร็วเหลือ {{ remainingTime }} นาที</p>
         </div>
         <p class="text-center text-red-600 text-xs mt-4">
           สัญญาจะสิ้นสุดในวันที่ 02/01/2569

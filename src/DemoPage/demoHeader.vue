@@ -53,7 +53,7 @@
       <!-- Billing Section -->
       <div class="rounded-md">
         <p class="text-center">
-          <span class="bg-gray-300 inline-block py-1 px-2 rounded-md text-sm">
+          <span class="bg-gray-200 inline-block py-1 px-2 rounded-md text-sm">
             บิลรายเดือน
           </span>
         </p>
