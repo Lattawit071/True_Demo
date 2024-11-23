@@ -2,12 +2,10 @@
 
 <template>
   <div>
-    <!-- Main Content -->
     <router-view></router-view>
 
     <div class="fixed bottom-0 left-0 w-full bg-white border-t border-gray-300">
       <div class="flex justify-between items-center py-3 px-6">
-        <!-- Home -->
         <router-link to="/" class="text-center" active-class="active">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -26,7 +24,6 @@
           <p class="text-xs text-gray-600">หน้าหลัก</p>
         </router-link>
 
-        <!-- Billing & Usage -->
         <router-link to="/billing" class="text-center" active-class="active">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -45,7 +42,6 @@
           <p class="text-xs text-gray-600">บิล & ใช้งาน</p>
         </router-link>
 
-        <!-- Add-on Packs (Non-Link) -->
         <div class="text-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -64,7 +60,6 @@
           <p class="text-xs text-gray-600">ซื้อแพ็คเสริม</p>
         </div>
 
-        <!-- Special Privileges (Non-Link) -->
         <div class="text-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -83,7 +78,6 @@
           <p class="text-xs text-gray-600">สิทธิพิเศษ</p>
         </div>
 
-        <!-- Support (Non-Link) -->
         <div class="text-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"

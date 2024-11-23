@@ -44,15 +44,12 @@
       </div>
     </div>
 
-    <!-- Main Content Section -->
     <div>
-      <!-- Main Content Section -->
       <div>
         <div class="flex justify-center">
           <img src="/1.png" class="w-full" />
         </div>
 
-        <!-- Billing Section -->
         <div class="rounded-md">
           <p class="text-center">
             <span class="bg-gray-300 inline-block py-1 px-2 rounded-md text-sm">
@@ -60,7 +57,6 @@
             </span>
           </p>
 
-          <!-- Payment Information Section -->
           <div class="flex flex-col sm:flex-row justify-between px-4 sm:px-20">
             <div class="mb-4 sm:mb-0 text-center sm:text-left w-full sm:w-auto">
               <p>
@@ -85,10 +81,9 @@
   .flex-col {
     display: flex;
     flex-direction: column;
-    gap: 1rem; /* เพิ่มระยะห่างระหว่างไอเทมในแนวตั้ง */
+    gap: 1rem;
   }
 
-  /* ให้แน่ใจว่าเมื่อหน้าจอเล็กลง การจัดเรียงเป็นคอลัมน์ */
   .flex-row {
     flex-direction: column;
     justify-content: flex-start;
@@ -96,7 +91,6 @@
 }
 
 @media (min-width: 640px) {
-  /* เมื่อหน้าจอใหญ่กว่า 640px ให้จัดเรียงในรูปแบบ flex-row และใช้ justify-between */
   .flex-row {
     display: flex;
     flex-direction: row;

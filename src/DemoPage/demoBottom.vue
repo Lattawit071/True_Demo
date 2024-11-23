@@ -4,7 +4,7 @@ import demoModal from "./demoModal.vue";
 
 const currentView = ref(null);
 const modalOpen = ref(false);
-const timerValue = ref("0 "); // ค่าเริ่มต้นเป็น 0 นาที
+const timerValue = ref("0 ");
 const remainingTime = ref(0);
 const timerStatus = ref("");
 
@@ -19,18 +19,18 @@ function openModal() {
 function closeModal() {
   modalOpen.value = false;
   if (!timerValue.value || timerValue.value === "ปิดการใช้งาน") {
-    timerValue.value = "0 นาที"; // ตั้งค่า 0 นาทีเมื่อไม่มีการตั้งเวลา
+    timerValue.value = "0 นาที";
   }
 }
 
 function updateRemainingTime(time) {
-  remainingTime.value = time; // อัปเดตเวลาเหลือ
+  remainingTime.value = time;
 }
 
 function updateStatus(status) {
   timerStatus.value = status;
   if (status === "ปิดการใช้งาน") {
-    remainingTime.value = 0; // รีเซ็ตเวลาเหลือ
+    remainingTime.value = 0;
   }
 }
 </script>
@@ -46,7 +46,6 @@ function updateStatus(status) {
   </teleport>
 
   <div class="p-1 px-[40px] container mx-auto mt-2">
-    <!-- ส่วนข้อมูลด้านบน -->
     <div
       class="flex justify-between items-center p-4 border border-gray-300 rounded-md"
     >
@@ -75,7 +74,6 @@ function updateStatus(status) {
       </div>
     </div>
 
-    <!-- ข้อมูล 5G Device -->
     <div class="bg-gray-200 min-h-screen py-6">
       <div class="kuy flex flex-col items-center justify-center">
         <div class="flex justify-center">
@@ -107,7 +105,6 @@ function updateStatus(status) {
         </p>
       </div>
 
-      <!-- เพิ่มส่วนแสดงเวลา -->
       <div class="mx-[12px] bg-white mt-[15px]">
         <div class="flex justify-between gap-4 px-4">
           <button
@@ -155,7 +152,6 @@ function updateStatus(status) {
               </div>
             </div>
 
-            <!-- ส่วนอินเทอร์เน็ต -->
             <div class="border border-gray-300 p-4">
               <div class="flex items-center justify-between">
                 <div>🌐</div>
@@ -205,7 +201,6 @@ function updateStatus(status) {
               </div>
             </div>
 
-            <!-- ส่วนอินเทอร์เน็ต -->
             <div class="border border-gray-300 p-4">
               <div class="flex items-center justify-between">
                 <div>🌐</div>
@@ -238,17 +233,17 @@ function updateStatus(status) {
 <style scoped>
 .container {
   display: flex;
-  flex-direction: column; /* Ensure vertical stacking */
-  justify-content: flex-start; /* Align to the top */
-  align-items: center; /* Center horizontally */
-  height: 100vh; /* Full screen height */
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100vh;
   padding: 15px;
   box-sizing: border-box;
 }
 
 .button-container {
   display: flex;
-  flex-direction: column; /* Stack buttons vertically on small screens */
+  flex-direction: column;
   gap: 10px;
 }
 

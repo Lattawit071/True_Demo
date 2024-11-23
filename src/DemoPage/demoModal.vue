@@ -10,7 +10,7 @@ const timerStatus = ref("");
 const handleTimeSelect = (time) => {
   selectedTime.value = time;
   if (time !== "custom") {
-    customTime.value = 0; // รีเซ็ตเวลา custom หากเลือกค่าอื่น
+    customTime.value = 0;
   }
 };
 
@@ -23,15 +23,15 @@ const setTimer = () => {
     selectedTime.value === "custom" ? customTime.value : selectedTime.value;
 
   if (timeToSet === "none" || timeToSet <= 0) {
-    remainingTime.value = 0; // รีเซ็ตเวลาเหลือ
-    timerStatus.value = "ปิดการใช้งาน"; // อัปเดตสถานะเป็นปิด
-    emit("set-status", "ปิดการใช้งาน"); // ส่งข้อความไปยัง parent
+    remainingTime.value = 0;
+    timerStatus.value = "ปิดการใช้งาน";
+    emit("set-status", "ปิดการใช้งาน");
   } else {
-    remainingTime.value = timeToSet; // อัปเดตเวลา
-    timerStatus.value = ""; // เคลียร์ข้อความสถานะ
-    emit("set-time", timeToSet); // ส่งค่าเวลาไปยัง parent
+    remainingTime.value = timeToSet;
+    timerStatus.value = "";
+    emit("set-time", timeToSet);
   }
-  closeModal(); // ปิด modal
+  closeModal();
 };
 </script>
 
