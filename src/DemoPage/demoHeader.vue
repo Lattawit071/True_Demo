@@ -46,29 +46,27 @@
 
     <!-- Main Content Section -->
     <div>
-      <!-- Main Content Section -->
-      <div>
-        <div class="flex justify-center">
-          <img src="/2.png" class="w-full" />
-        </div>
+      <div class="flex justify-center">
+        <img src="/2.png" class="w-full" />
+      </div>
 
-        <!-- Billing Section -->
-        <div class="rounded-md">
-          <p class="text-center">
-            <span class="bg-gray-300 inline-block py-1 px-2 rounded-md text-sm">
-              บิลรายเดือน
-            </span>
-          </p>
+      <!-- Billing Section -->
+      <div class="rounded-md">
+        <p class="text-center">
+          <span class="bg-gray-300 inline-block py-1 px-2 rounded-md text-sm">
+            บิลรายเดือน
+          </span>
+        </p>
 
-          <!-- Payment Information Section -->
-          <div class="flex flex-col sm:flex-row justify-between px-4 sm:px-20">
-            <div class="mb-4 sm:mb-0 text-center sm:text-left w-full sm:w-auto">
-              <p>ยอดเงินที่ต้องชำระ</p>
-              <p class="text-lg font-bold">$ 0.00 <span>📝</span></p>
-              <!-- ใช้ emoji สมุดและปากกา -->
-            </div>
+        <!-- Payment Information Section -->
+        <div class="flex justify-between items-center px-4 sm:px-20">
+          <div class="sm:mb-0 text-center sm:text-left w-full sm:w-auto">
+            <p>ยอดเงินที่ต้องชำระ</p>
+          </div>
+          <div class="flex items-center">
+            <p class="text-lg font-bold mr-4">0.00$</p>
             <div
-              class="bg-red-500 text-white py-2 px-6 rounded-full cursor-pointer hover:bg-red-600 hover:shadow-lg transition-all duration-200 ease-in-out inline-flex justify-center"
+              class="bg-red-500 text-white py-2 px-6 rounded-full cursor-pointer hover:bg-red-600 hover:shadow-lg transition-all duration-200 ease-in-out"
             >
               <p class="text-xl font-semibold">จ่าย</p>
             </div>

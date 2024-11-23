@@ -40,7 +40,7 @@ function setTimeFromModal(time) {
     />
   </teleport>
 
-  <div class="p-7 px-[40px]">
+  <div class="p-7 px-[40px] container mx-auto">
     <!-- ส่วนข้อมูลด้านบน -->
     <div
       class="flex justify-between items-center p-4 border border-gray-300 rounded-md"
@@ -63,40 +63,45 @@ function setTimeFromModal(time) {
     </div>
 
     <!-- ข้อมูล 5G Device -->
-    <div class="bg-gray-200 min-h-screen">
-      <div class="flex justify-center">
-        <p>5G Device 0</p>
-      </div>
-      <div class="flex justify-center gap-2">
-        <p class="pr-[20px]">(แพ็คหลัก + 1 แพ็คเสริม)</p>
-        <span class="text-red-600 text-xl">🔍</span>
-        <p class="text-red-600 text-lg cursor-pointer hover:underline">
-          ดูรายละเอียด
-        </p>
-        <button
-          class="bg-red-500 text-white py-2 px-4 rounded-full hover:bg-red-700 focus:outline-none transition duration-200 ease-in-out"
-          @click="openModal"
-        >
-          เพิ่มความเร็ว
-        </button>
-        <!-- เพิ่มข้อความแสดงเวลาทางขวาของปุ่ม -->
+    <div class="bg-gray-200 min-h-screen py-6">
+      <div class="kuy flex flex-col items-center justify-center">
+        <div class="flex justify-center">
+          <p class="text-xs font-semibold">5G Device 0</p>
+        </div>
+        <div class="flex flex-col sm:flex-row justify-center mt-4">
+          <div class="flex gap-2">
+            <p class="text-xs">(แพ็คหลัก + 1 แพ็คเสริม)</p>
+            <div class="flex gap-2">
+              <span class="text-red-600 text-xs">🔍</span>
+              <p class="text-red-600 text-xs cursor-pointer hover:underline">
+                ดูรายละเอียด
+              </p>
+              <button
+                class="bg-red-500 text-white py-1 px-2 rounded-md hover:bg-red-600 focus:outline-none transition-all duration-200 ease-in-out text-xs"
+                @click="openModal"
+              >
+                เพิ่มความเร็ว
+              </button>
+            </div>
+          </div>
+        </div>
         <div
           v-if="timerValue !== null"
-          class="text-lg font-semibold text-red-600 ml-4"
+          class="text-xs font-semibold text-red-600 flex items-center ml-4 mt-2"
         >
+          ตอนนี้ความเร็วเหลือ
           {{ timerValue === 0 ? "0 " : timerValue + " นาที" }}
         </div>
+        <p class="text-center text-red-600 text-xs mt-4">
+          สัญญาจะสิ้นสุดในวันที่ 02/01/2569
+        </p>
       </div>
-
-      <p class="text-center text-red-600 text-sm mt-2">
-        สัญญาจะสิ้นสุดในวันที่ 02/01/2569
-      </p>
 
       <!-- เพิ่มส่วนแสดงเวลา -->
       <div class="mx-[12px] bg-white mt-[15px]">
         <div class="flex justify-between gap-4 px-4">
           <button
-            class="relative bg-red-500 text-white py-2 px-4 rounded hover:bg-red-700 transition duration-200 flex-1 ml-4"
+            class="relative bg-red-500 text-white py-2 px-4 rounded hover:bg-red-700 transition duration-200 flex-1"
             @click="showData('left')"
           >
             รอบบิลปัจจุบัน
@@ -105,7 +110,7 @@ function setTimeFromModal(time) {
             ></span>
           </button>
           <button
-            class="relative bg-red-500 text-white py-2 px-4 rounded hover:bg-red-700 transition duration-200 flex-1 mr-4"
+            class="relative bg-red-500 text-white py-2 px-4 rounded hover:bg-red-700 transition duration-200 flex-1"
             @click="showData('right')"
           >
             รอบบิลที่ผ่านมา
@@ -116,18 +121,17 @@ function setTimeFromModal(time) {
         </div>
         <div class="mt-4">
           <div v-if="currentView === 'left'" class="px-[10px] py-[20px]">
+            <!-- ส่วนโทร -->
             <div class="border border-gray-300 p-4">
               <div class="flex items-center justify-between">
                 <div>📱</div>
-                <div>
-                  <div class="pl-[10px]">
-                    <p class="text-2xl">โทร</p>
-                    <p>(แพ็คหลัก + แพ็คเสริม)</p>
-                    <div
-                      class="w-full h-3 bg-gray-300 rounded-full mt-2 relative overflow-hidden"
-                    >
-                      <div class="h-full bg-green-500" style="width: 30%"></div>
-                    </div>
+                <div class="pl-[10px]">
+                  <p class="text-2xl">โทร</p>
+                  <p>(แพ็คหลัก + แพ็คเสริม)</p>
+                  <div
+                    class="w-full h-3 bg-gray-300 rounded-full mt-2 relative overflow-hidden"
+                  >
+                    <div class="h-full bg-green-500" style="width: 30%"></div>
                   </div>
                 </div>
                 <div class="ml-auto text-right">
@@ -145,15 +149,13 @@ function setTimeFromModal(time) {
             <div class="border border-gray-300 p-4">
               <div class="flex items-center justify-between">
                 <div>🌐</div>
-                <div>
-                  <div class="pl-[10px]">
-                    <p class="text-2xl">อินเทอร์เน็ต</p>
-                    <p>(แพ็คหลัก + แพ็คเสริม)</p>
-                    <div
-                      class="w-full h-3 bg-gray-300 rounded-full mt-2 relative overflow-hidden"
-                    >
-                      <div class="h-full bg-green-500" style="width: 20%"></div>
-                    </div>
+                <div class="pl-[10px]">
+                  <p class="text-2xl">อินเทอร์เน็ต</p>
+                  <p>(แพ็คหลัก + แพ็คเสริม)</p>
+                  <div
+                    class="w-full h-3 bg-gray-300 rounded-full mt-2 relative overflow-hidden"
+                  >
+                    <div class="h-full bg-green-500" style="width: 20%"></div>
                   </div>
                 </div>
                 <div class="ml-auto text-right">
@@ -173,16 +175,13 @@ function setTimeFromModal(time) {
             <div class="border border-gray-300 p-4">
               <div class="flex items-center justify-between">
                 <div>📱</div>
-                <div>
-                  <div class="pl-[10px]">
-                    <p class="text-2xl">โทร</p>
-                    <p>(แพ็คหลัก + แพ็คเสริม)</p>
-                    <div
-                      class="w-full h-3 bg-gray-300 rounded-full mt-2 relative overflow-hidden"
-                    >
-                      <!-- สีเขียวในหลอดพลัง -->
-                      <div class="h-full bg-green-500" style="width: 70%"></div>
-                    </div>
+                <div class="pl-[10px]">
+                  <p class="text-2xl">โทร</p>
+                  <p>(แพ็คหลัก + แพ็คเสริม)</p>
+                  <div
+                    class="w-full h-3 bg-gray-300 rounded-full mt-2 relative overflow-hidden"
+                  >
+                    <div class="h-full bg-green-500" style="width: 70%"></div>
                   </div>
                 </div>
                 <div class="ml-auto text-right">
@@ -200,15 +199,13 @@ function setTimeFromModal(time) {
             <div class="border border-gray-300 p-4">
               <div class="flex items-center justify-between">
                 <div>🌐</div>
-                <div>
-                  <div class="pl-[10px]">
-                    <p class="text-2xl">อินเทอร์เน็ต</p>
-                    <p>(แพ็คหลัก + แพ็คเสริม)</p>
-                    <div
-                      class="w-full h-3 bg-gray-300 rounded-full mt-2 relative overflow-hidden"
-                    >
-                      <div class="h-full bg-green-500" style="width: 50%"></div>
-                    </div>
+                <div class="pl-[10px]">
+                  <p class="text-2xl">อินเทอร์เน็ต</p>
+                  <p>(แพ็คหลัก + แพ็คเสริม)</p>
+                  <div
+                    class="w-full h-3 bg-gray-300 rounded-full mt-2 relative overflow-hidden"
+                  >
+                    <div class="h-full bg-green-500" style="width: 50%"></div>
                   </div>
                 </div>
                 <div class="ml-auto text-right">
@@ -228,4 +225,45 @@ function setTimeFromModal(time) {
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.container {
+  display: flex;
+  flex-direction: column; /* Ensure vertical stacking */
+  justify-content: flex-start; /* Align to the top */
+  align-items: center; /* Center horizontally */
+  height: 100vh; /* Full screen height */
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column; /* Stack buttons vertically on small screens */
+  gap: 10px;
+}
+
+.text {
+  font-size: 16px;
+}
+
+.button-container button {
+  width: auto;
+  padding: 10px 20px;
+}
+
+/* Adjustments for mobile screens */
+@media (max-width: 375px) {
+  .container {
+    padding: 10px;
+  }
+
+  .text {
+    font-size: 14px;
+  }
+
+  .button-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+</style>
