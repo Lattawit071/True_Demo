@@ -45,16 +45,20 @@ function updateStatus(status) {
     />
   </teleport>
 
-  <div class="p-7 px-[40px] container mx-auto">
+  <div class="p-1 px-[40px] container mx-auto">
     <!-- ส่วนข้อมูลด้านบน -->
     <div
       class="flex justify-between items-center p-4 border border-gray-300 rounded-md"
     >
       <div class="flex items-center space-x-4">
         <div
-          class="w-16 h-16 bg-gray-200 flex items-center justify-center rounded-md"
+          class="w-20 h-16 bg-gray-200 flex items-center justify-center rounded-md"
         >
-          <span>QR</span>
+          <img
+            src="/qr.png"
+            alt="QR Code"
+            class="w-full h-full object-cover rounded-md"
+          />
         </div>
         <div class="text-left">
           <p class="font-semibold">091-234-5678</p>
