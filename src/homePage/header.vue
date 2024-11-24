@@ -7,9 +7,13 @@
     >
       <div class="flex items-center mb-2 md:mb-0">
         <div
-          class="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center"
+          class="w-10 h-10 bg-gray-300 rounded-full overflow-hidden flex items-center justify-center"
         >
-          <span class="text-gray-700 font-bold">U</span>
+          <img
+            src="/3.png"
+            alt="User Profile Picture"
+            class="w-full h-full object-cover"
+          />
         </div>
       </div>
 
