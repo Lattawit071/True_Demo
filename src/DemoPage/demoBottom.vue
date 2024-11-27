@@ -79,16 +79,16 @@ function updateStatus(status) {
       </div>
     </div>
     <div
-      class="text-gray-700 bg-white mt-3 border border-gray-200 py-6 rounded-md w-full"
+      class="text-gray-700 bg-white mt-3 border border-gray-300 py-6 rounded-md w-full"
       @click="showTelData('open')"
     >
       <div>
         <div class="flex justify-between mx-3">
-          <p class="text-xs">ใช้ได้ถึง 06 ก.ย. 2568 (283 วัน)</p>
+          <p class="text-xs font-medium">ใช้ได้ถึง 06 ก.ย. 2568 (283 วัน)</p>
           <p class="mr-5 font-medium">ยอดคงเหลือ</p>
         </div>
         <div class="flex justify-between mx-3">
-          <p>091-234-5678</p>
+          <p class="font-bold">091-234-5678</p>
           <p class="text-red-500 text-xl">></p>
         </div>
         <div class="flex justify-between mx-3">
@@ -104,7 +104,7 @@ function updateStatus(status) {
 
     <div
       v-if="currentTel === 'open'"
-      class="bg-gray-100 py-6 rounded-md w-full"
+      class="bg-gray-100 py-6 rounded-md w-full border border-gray-300"
     >
       <div class="">
         <div class="kuy flex flex-col items-center justify-center">
@@ -159,8 +159,8 @@ function updateStatus(status) {
               ></span>
             </button>
           </div>
-          <div class="mt-4 bg-gray-100">
-            <div v-if="currentView === 'left'" class="px-[10px] py-[20px]">
+          <div class="bg-gray-100">
+            <div v-if="currentView === 'left'" class="">
               <!-- New inner div inside left section -->
               <div class="border border-gray-300 p-4">
                 <div class="flex items-center justify-between">
@@ -209,7 +209,7 @@ function updateStatus(status) {
               </div>
             </div>
 
-            <div v-if="currentView === 'right'" class="px-[10px] py-[20px]">
+            <div v-if="currentView === 'right'" class="">
               <!-- New inner div inside right section -->
               <div class="border border-gray-300 p-4">
                 <div class="flex items-center justify-between">
@@ -261,44 +261,50 @@ function updateStatus(status) {
         </div>
       </div>
     </div>
-    <!-- <div
-      class="text-gray-700 border border-red-500 mx-10 bg-gray-200 py-6 rounded-md w-full"
+    <div
+      class="text-gray-700 bg-white mt-2 border border-gray-300 py-6 rounded-md w-full"
     >
-      <div class="flex justify-between mx-3">
-        <p class="text-xs">ใช้ได้ถึง 06 ก.ย. 2568 (283 วัน)</p>
-        <p>ยอดคงเหลือ</p>
-      </div>
-      <div class="flex justify-between mx-3">
-        <p>091-234-5678</p>
-        <p></p>
-      </div>
-      <div class="flex justify-between mx-3">
-        <p class="text-xs text-yellow-300">ทรูมูฟ เอช</p>
-        <div class="flex">
-          <p class="font-bold">$ 0</p>
-          <p>.00</p>
+      <div>
+        <div class="flex justify-between mx-3">
+          <p class="text-xs font-medium">ใช้ได้ถึง 06 ก.ย. 2568 (283 วัน)</p>
+          <p class="mr-5 font-medium">ยอดคงเหลือ</p>
         </div>
+        <div class="flex justify-between mx-3">
+          <p class="font-bold">099-989-9898</p>
+          <p class="text-red-500 text-xl">></p>
+        </div>
+        <div class="flex justify-between mx-3">
+          <p class="text-xs text-yellow-300">ทรูมูฟ เอช</p>
+          <div class="flex">
+            <p class="font-bold">$ 77</p>
+            <p class="mr-10">.77</p>
+          </div>
+        </div>
+        <div class="flex justify-between mx-3"></div>
       </div>
     </div>
     <div
-      class="text-gray-700 border border-red-500 mx-10 bg-gray-200 py-6 rounded-md w-full"
+      class="text-gray-700 bg-white mt-2 border border-gray-300 py-6 rounded-md w-full"
     >
-      <div class="flex justify-between mx-3">
-        <p class="text-xs">ใช้ได้ถึง 06 ก.ย. 2568 (283 วัน)</p>
-        <p>ยอดคงเหลือ</p>
-      </div>
-      <div class="flex justify-between mx-3">
-        <p>091-234-5678</p>
-        <p></p>
-      </div>
-      <div class="flex justify-between mx-3">
-        <p class="text-xs text-yellow-300">ทรูมูฟ เอช</p>
-        <div class="flex">
-          <p class="font-bold">$ 0</p>
-          <p>.00</p>
+      <div>
+        <div class="flex justify-between mx-3">
+          <p class="text-xs font-medium">ใช้ได้ถึง 06 ก.ย. 2568 (283 วัน)</p>
+          <p class="mr-5 font-medium">ยอดคงเหลือ</p>
         </div>
+        <div class="flex justify-between mx-3">
+          <p class="font-bold">090-090-9009</p>
+          <p class="text-red-500 text-xl">></p>
+        </div>
+        <div class="flex justify-between mx-3">
+          <p class="text-xs text-yellow-300">ทรูมูฟ เอช</p>
+          <div class="flex">
+            <p class="font-bold">$ 88</p>
+            <p class="mr-10">.11</p>
+          </div>
+        </div>
+        <div class="flex justify-between mx-3"></div>
       </div>
-    </div> -->
+    </div>
   </div>
 </template>
 
