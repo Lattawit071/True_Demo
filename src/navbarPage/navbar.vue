@@ -24,7 +24,7 @@
           <p class="text-xs text-gray-600">หน้าหลัก</p>
         </router-link>
 
-        <router-link to="/billing" class="text-center" active-class="active">
+        <router-link to="/SecondPage" class="text-center" active-class="active">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="w-6 h-6 mx-auto text-gray-600 hover:text-blue-500"

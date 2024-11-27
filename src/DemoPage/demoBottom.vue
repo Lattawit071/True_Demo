@@ -2,7 +2,7 @@
 import { ref } from "vue";
 import demoModal from "./demoModal.vue";
 
-const currentView = ref(null);
+const currentView = ref("left");
 const modalOpen = ref(false);
 const timerValue = ref("0 ");
 const remainingTime = ref(0);
