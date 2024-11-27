@@ -10,11 +10,11 @@ const timerStatus = ref("");
 const currentTel = ref(null);
 
 function showData(view) {
-  currentView.value = view;
+  currentView.value = currentView.value === view ? null : view;
 }
 
 function showTelData(view) {
-  currentTel.value = view;
+  currentTel.value = currentTel.value === view ? null : view;
 }
 
 function openModal() {
