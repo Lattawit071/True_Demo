@@ -7,7 +7,7 @@ import no from "./no.vue";
 <template>
   <demoheader />
   <demoBottom />
-  <no class="mb-[150px]" />
+  <no class="mb-[300px]" />
 </template>
 
 <style scoped></style>
